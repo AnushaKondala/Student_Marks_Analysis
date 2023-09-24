@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <style>
+        .button {
+            background-color: #8d43e5;
+            color: white;
+            border: 2px solid #9649f3;
+        }
+
+        .file_container {
+            background-color: whitesmoke;
+            width: auto;
+            height: 500px;
+        }
+
+        .navbar {
+            background-color: #e7d2ff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        .container {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        marquee{
+            font-size: larger;
+            font-weight: bolder;
+            color:red
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">STUDENT MARKS ANALYSIS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                    <a class="nav-link" href="../home.html/#FEATURES">INTRO</a>
+                    <a class="nav-link" href="./templates/index.html">GET RESULT</a>
+                    <a class="nav-link" href="../home.html/#FEATURES">FEATURES</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <div class="row">
+        
+        <div class="col-12">
+            <div class="container align-items-center justify-content-center">
+                <div class="row text-center" style="background-color: #ecf1f7; position: sticky; top: 0;">
+                    <h3 class="">STUDENT MARKS ANALYSIS</h3>
+                </div>
+                <p style="color:red; text-align: center;">**Scroll down to know the file format</p>
+                <div class="row text-center">
+                   
+                    <div class="col-6">
+                        <div class="card text-center m-5" style="border: 2px solid #e7d2ff;">
+                            <div class="card-header" style="background-color:#ecf1f7;">
+                                <h5>Upload an Excel Sheet</h5>
+                            </div>
+                            <div class="card-body">
+                                <form action="/process" method="POST" enctype="multipart/form-data">
+                                    <input type="file" id="fileInput" name="file" accept=".xlsx, .xls"
+                                        onchange="checkFileType()" class="text-center">
+                                        <br>
+                                    <input type="submit" value="Upload" class="btn button m-3 shadow">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <img src="../static/fileUpload.JPG" alt="" class="img-fluid" width="450px">
+                    </div>
+                    <div class="col-12">
+                        <marquee behavior="" direction="" >---Important!!---</marquee>
+                        <p style="color:red">**The format for file uploading should be as follows :**</p>
+                        <img src="../static/FileUploadingFormat.jpg" alt="" width="100%" height="150px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+    
+    <script>
+        function checkFileType() {
+            var fileInput = document.getElementById('fileInput');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.xlsx|\.xls)$/i; // Supported file extensions
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file type! Only Excel files (.xlsx, .xls) are allowed.');
+                fileInput.value = ''; // Clear the file input field
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
